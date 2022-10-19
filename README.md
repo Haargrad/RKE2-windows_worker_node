@@ -14,3 +14,12 @@ Enable Hyper-V
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 Install-WindowsFeature -Name Containers
+
+set-MpPreference -DisableRealtimeMonitoring $true -DisableScriptScanning $true -DisableArchiveScanning $true
+
+stop-process dockerd
+
+stop-service docker
+
+set-service docker -startuptype disabled
+
