@@ -23,3 +23,14 @@ stop-service docker
 
 set-service docker -startuptype disabled
 
+New-NetIPAddress -InterfaceAlias Ethernet0 -IPAddress 172.16.1.2 -PrefixLength 24 -DefaultGateway 172.16.1.1
+
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+Set-Service sshd -StartupType Automatic
+
+Set-Service ssh-agent -StartupType Automatic
+
+Start-Service sshd
+
+Start-Service ssh-agent
