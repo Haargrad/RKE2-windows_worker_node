@@ -37,3 +37,5 @@ Start-Service ssh-agent
 
 Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-ContainerdRuntime/install-containerd-runtime.ps1" -o install-containerd-runtime.ps1
 .\install-containerd-runtime.ps1
+
+\setup64.exe /s /v “/qn reboot=r”
