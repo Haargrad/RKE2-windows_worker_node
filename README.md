@@ -23,6 +23,8 @@ stop-service docker
 
 set-service docker -startuptype disabled
 
+Remove-NetIPAddress -InterfaceAlias Ethernet0 -confirm:$False
+
 New-NetIPAddress -InterfaceAlias Ethernet0 -IPAddress 172.16.1.2 -PrefixLength 24 -DefaultGateway 172.16.1.1
 
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
